@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:school/common/values/color.dart';
-import 'package:school/pages/home/home_page.dart';
 import 'package:school/pages/splash/bloc/welcome_bloc.dart';
 
 import '../../common/widgets/text_widget.dart';
@@ -23,7 +22,7 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.primaryBackground,
       body: BlocBuilder<WelcomeBloc, WelcomeState>(builder: (context, state) {
         return Container(
           margin: EdgeInsets.only(top: 45.h),
@@ -122,7 +121,7 @@ class _WelcomeState extends State<Welcome> {
             child: Text(
               buttonName,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.primaryBackground,
                 fontSize: 16.sp,
               ),
             ),
@@ -134,12 +133,8 @@ class _WelcomeState extends State<Welcome> {
                   curve: Curves.easeIn,
                 );
               } else {
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        const HomePage(),
-                  ),
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  "singIn",
                   (route) => false,
                 );
               }
