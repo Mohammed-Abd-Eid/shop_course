@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "581561947509",
+    "project_id": "laerning-app-b6b7b",
+    "storage_bucket": "laerning-app-b6b7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581561947509:android:a53959c032e7c28599ef3c",
+        "android_client_info": {
+          "package_name": "com.example.school"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhLWGgKb9RKYlMOaJ0Ceg6vlXA83WHa4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

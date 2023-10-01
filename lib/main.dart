@@ -1,14 +1,17 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:school/pages/home/home_page.dart';
-import 'package:school/pages/login/login.dart';
-import 'package:school/pages/splash/bloc/welcome_bloc.dart';
-import 'package:school/pages/splash/welcome.dart';
+import 'package:school/common/bloc_pro.dart';
+import 'package:school/common/routes/pages.dart';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'common/values/color.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -19,21 +22,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => WelcomeBloc(),
-        )
-      ],
+      providers: AppBlocProvider.allBloc,
       child: ScreenUtilInit(builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: const Welcome(),
-          routes: {
-            "myHomePage": (context) => const HomePage(),
-            "singIn": (context) => const SignIn(),
-          },
+          onGenerateRoute: AppPage.generateRoute,
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(color: Colors.black),
               elevation: 0,
               backgroundColor: AppColors.primaryBackground,
               centerTitle: true,

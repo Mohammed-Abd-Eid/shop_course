@@ -39,10 +39,10 @@ Widget text16({String text = ""}) {
   );
 }
 
-Widget text14({String text = ""}) {
+Widget text14({String text = "", TextAlign textAlign = TextAlign.center}) {
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: textAlign,
     style: TextStyle(
       color: AppColors.primaryThreeElementText,
       fontSize: 14.sp,

@@ -8,13 +8,13 @@ Widget buildTextField(
   String text,
   TextInputType textType,
   IconData icon,
-  TextEditingController controller,
+  void Function(String value)? fun,
 ) {
   return Container(
     margin: EdgeInsets.only(top: 8.h, bottom: 16.h),
     width: 325.w,
     child: TextField(
-      controller: controller,
+      onChanged: (value) => fun!(value),
       keyboardType: textType,
       textDirection: TextDirection.ltr,
       cursorColor: AppColors.primaryElement,
